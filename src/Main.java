@@ -16,19 +16,16 @@ public class Main {
         addBookToArray("Der Steppenwolf", hermannHesse, 1927, booksArr);
         addBookToArray("Der Process", franzKafka, 1925, booksArr);
 
-        for (int i = 0; i < Book.bookCounter; i++) {
-            printBookInfo(booksArr[i]);
-        }
-
+        printArray(booksArr);
     }
 
-    public static void printBookInfo(Book book) {
-        System.out.println(book.getAuthor() + " : " + book.getBookName() + " : " + book.getPublicationYear());
+    public static void printArray(Book[] book) {
+        for (int i = 0; i < Book.bookCounter; i++) {
+            System.out.println(book[i].getAuthor() + " : " + book[i].getBookName() + " : " + book[i].getPublicationYear());
+        }
     }
 
     public static void addBookToArray(String bookName, Author author, int publicationYear, Book[] booksArr) {
-        Book book = new Book(bookName, author, publicationYear);
-        booksArr[Book.bookCounter - 1] = book;
-
+        booksArr[Book.bookCounter] = new Book(bookName, author, publicationYear);
     }
 }
