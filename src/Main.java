@@ -5,30 +5,25 @@ public class Main {
         Author hermannHesse = new Author("Hermann", "Hesse");
         Author franzKafka = new Author("Franz", "Kafka");
 
-
         int arrayMaximumSize = 5;
 
-        Book[] booksArr = new Book[arrayMaximumSize];
+        Library lib = new Library(arrayMaximumSize);
 
-        addBookToArray("Misery", stephenKing, 1987, booksArr);
-        addBookToArray("The Green Mile", stephenKing, 1996, booksArr);
-        addBookToArray("Das Glasperlenspiel", hermannHesse, 1943, booksArr);
-        addBookToArray("Der Steppenwolf", hermannHesse, 1927, booksArr);
-        addBookToArray("Der Process", franzKafka, 1925, booksArr);
+        lib.addBookToLibrary("Misery", stephenKing, 1987);
+        lib.addBookToLibrary("The Green Mile", stephenKing, 1996);
+        lib.addBookToLibrary("Das Glasperlenspiel", hermannHesse, 1943);
+        lib.addBookToLibrary("Der Steppenwolf", hermannHesse, 1927);
+        lib.addBookToLibrary("Der Process", franzKafka, 1925);
 
-        for (int i = 0; i < Book.bookCounter; i++) {
-            printBookInfo(booksArr[i]);
-        }
+        lib.printLibrary();
 
-    }
+        lib.printBookInfoByName("Der Steppenwolf");
 
-    public static void printBookInfo(Book book) {
-        System.out.println(book.getAuthor() + " : " + book.getBookName() + " : " + book.getPublicationYear());
-    }
+        lib.changePublicationYear("Misery", 2000);
 
-    public static void addBookToArray(String bookName, Author author, int publicationYear, Book[] booksArr) {
-        Book book = new Book(bookName, author, publicationYear);
-        booksArr[Book.bookCounter - 1] = book;
+        lib.printLibrary();
 
     }
+
+
 }
